@@ -1,32 +1,32 @@
-import { useState } from "react";
+import { dbService } from "fbase";
+import { useEffect, useState } from "react";
+import Dweet from "components/Dweet";
+import DweetFactory from "components/DweetFactory";
 
-const Home = () => {
+const Home = ({userObj}) => {
     //<span>Home</span>;
-    const [ dweet, setDweet ] = useState("");
+    const [ dweets, setDweets ] = useState([]);
 
-    const onSubmit = (event) => {
-        event.preventDefault();
-    };
-
-    const onChange = (event) => {
-        event.preventDefault();
-        const {
-            target: { value }
-        } = event;
-        setDweet(value);
-    };
+    useEffect( () => {
+        dbService.collection("dweets").onSnapshot((snapshot) => {
+            const newArray = snapshot.docs.map((document) => ({
+                id: document.id,
+                ...document.data(),
+            }));
+            setDweets(newArray);
+            
+        });
+    }, []);
 
     return (
-        <form onSubmit={onSubmit}>
-            <input
-                value={dweet}
-                onChange={onChange}
-                type="text"
-                placeholder="What's on your mind?"
-                maxLength={120}
-            />
-            <input type="submit" value="Dweet" />
-        </form>
+        <>
+            <DweetFactory userObj={userObj}/>
+            <div>
+                { dweets.map((dweet) => (
+                    <Dweet key={dweet.id} dweetObj={dweet} isOwner={dweet.creatorId === userObj.uid} />
+                ))}
+            </div>
+        </>
     );
 };
 export default Home;
