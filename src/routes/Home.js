@@ -19,14 +19,14 @@ const Home = ({userObj}) => {
     }, []);
 
     return (
-        <>
+        <div className="container">
             <DweetFactory userObj={userObj}/>
-            <div>
+            <div style={{ marginTop: 30 }}>
                 { dweets.map((dweet) => (
                     <Dweet key={dweet.id} dweetObj={dweet} isOwner={dweet.creatorId === userObj.uid} />
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 export default Home;

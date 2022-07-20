@@ -41,18 +41,40 @@ const Profile = ({userObj, refreshUser}) => {
     //    getMyDweets();
     //}, []);
     return (
-        <>
         <div>
+        
+        
+        <div className="container">
+            <form onSubmit={onSubmit} className="profileForm">
+                <input 
+                    type="text" 
+                    onChange={onChange} 
+                    placeholder="Display name" 
+                    value={newDisplayName} 
+                    autoFocus
+                    className="formInput"
+                />
+                <input 
+                    type="submit" 
+                    value="Update Profile" 
+                    className="formBtn"
+                    style={{
+                        marginTop: 10,
+                    }}
+                /> 
+            </form>
+            <span className="formBtn cancelBtn logOut" onClick={onLogoutClick}>
+                Log Out
+            </span>
+            
+        </div>
+        <div className="container" style={{ marginTop: 30 }}>
             { dweets.map((dweet) => (
                 <Dweet key={dweet.id} dweetObj={dweet} isOwner={dweet.creatorId === userObj.uid} />
             ))}
         </div>
-        <form onSubmit={onSubmit}>
-           <input type="text" onChange={onChange} placeholder="Display name" value={newDisplayName} />
-           <input type="submit" value="Update Profile" /> 
-        </form>
-        <button onClick={onLogoutClick}>Log Out</button>
-        </>
+        
+        </div>
     );
 };
 export default Profile;
