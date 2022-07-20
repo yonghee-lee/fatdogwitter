@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.js": "/fatdogwitter/static/js/main.256b806f.js",
+    "main.css": "/fatdogwitter/static/css/main.ff37f1a6.css",
+    "main.js": "/fatdogwitter/static/js/main.f6e363ec.js",
     "index.html": "/fatdogwitter/index.html",
-    "main.256b806f.js.map": "/fatdogwitter/static/js/main.256b806f.js.map"
+    "main.ff37f1a6.css.map": "/fatdogwitter/static/css/main.ff37f1a6.css.map",
+    "main.f6e363ec.js.map": "/fatdogwitter/static/js/main.f6e363ec.js.map"
   },
   "entrypoints": [
-    "static/js/main.256b806f.js"
+    "static/css/main.ff37f1a6.css",
+    "static/js/main.f6e363ec.js"
   ]
 }
