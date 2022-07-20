@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/fatdogwitter/static/js/main.256b806f.js",
+    "index.html": "/fatdogwitter/index.html",
+    "main.256b806f.js.map": "/fatdogwitter/static/js/main.256b806f.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.256b806f.js"
+  ]
+}
